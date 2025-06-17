@@ -64,8 +64,7 @@ class HallucinationValidation(Validator):
                 entailed_sentences.append(sentence)
 
         if len(hallucinated_sentences) > 0:
-            return FailResult(error_message = f"The following sentences are hallucinated:"
-                                              f" {hallucinated_sentences}")
+            return FailResult(error_message = f"The following sentences are hallucinated: {hallucinated_sentences}")
 
         return PassResult()
 
