@@ -20,13 +20,10 @@ warnings.filterwarnings("ignore")
 %env TOKENIZERS_PARALLELISM = true
 
 ## ------------------------------------------------------##
-# Setup an OpenAI client
 unguarded_client = OpenAI()
 
-# Load up our documents that make up the knowledge base
 vector_db = SimpleVectorDB.from_files("shared_data/")
 
-# Setup system message
 system_message = """You are a customer support chatbot for Alfredo's Pizza Cafe. Your responses should be based solely on the provided information.
 
                 Here are your instructions:
@@ -44,7 +41,6 @@ system_message = """You are a customer support chatbot for Alfredo's Pizza Cafe.
                 """
 
 ## ------------------------------------------------------##
-# Setup RAG chatbot
 rag_chatbot = RAGChatWidget(
                             client = unguarded_client,
                             system_message = system_message,
